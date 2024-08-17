@@ -8,6 +8,7 @@ import { pinoHttp } from 'pino-http'
 
 // routes
 import healthRouter from './routes/health.route.js'
+import productRouter from './routes/product.route.js'
 
 
 // middlewares
@@ -16,6 +17,9 @@ import ApiError from './utils/ApiError.js'
 
 // Assign a new express app
 const app = express()
+
+// Parse JSON
+app.use(express.json())
 
 // Parse Cookies
 app.use(cookieParser())
@@ -35,6 +39,7 @@ app.use(cors({
 
 // Routes
 app.use('/health', healthRouter)
+app.use('/products', productRouter)
 
 
 // send back a 404 error for any unknown api request
