@@ -13,4 +13,7 @@ export default {
 	mongo: {
 		URL: process.env.MONGO_URL
 	},
+	imgbb: {
+		API_KEY: process.env.IMGBB_API_KEY
+	}
 }

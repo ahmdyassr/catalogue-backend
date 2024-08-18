@@ -9,6 +9,7 @@ import { pinoHttp } from 'pino-http'
 // routes
 import healthRouter from './routes/health.route.js'
 import productRouter from './routes/product.route.js'
+import uploadRouter from './routes/upload.route.js'
 
 
 // middlewares
@@ -40,6 +41,7 @@ app.use(cors({
 // Routes
 app.use('/health', healthRouter)
 app.use('/products', productRouter)
+app.use('/upload', uploadRouter)
 
 
 // send back a 404 error for any unknown api request
