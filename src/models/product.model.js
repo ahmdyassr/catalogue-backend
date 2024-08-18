@@ -26,6 +26,10 @@ const productSchema = new mongoose.Schema({
 		type: String,
 		trim: true
 	},
+	status: {
+		type: String,
+		enum: ['active', 'draft']
+	},
 	price: {
 		type: Number
 	},
