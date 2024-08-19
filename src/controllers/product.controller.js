@@ -9,8 +9,17 @@ import Product from '../models/product.model.js'
 //
 const getProducts = catchAsync(async (req, res) => {
 
+	// get search query
+	const { query } = req.query
+
+	// construct filter
+	let filter = {}
+	if (query) {
+		filter.$text = { $search: query };
+	}
+
 	// get all products
-	const products = await Product.find()
+	const products = await Product.find(filter)
 
 	// send it back
 	res.status(httpStatus.OK).json(products)
