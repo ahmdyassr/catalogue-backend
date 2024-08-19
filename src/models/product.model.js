@@ -43,6 +43,9 @@ const productSchema = new mongoose.Schema({
 	timestamps: true
 })
 
+// Create text index
+productSchema.index({ name: 'text', description: 'text', category: 'text', status: 'text' })
+
 // Connect to separate DB for Images
 const productsDB = mongoose.connection.useDb('products')
 const Product = productsDB.model('Product', productSchema)
